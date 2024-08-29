@@ -105,8 +105,8 @@ struct IntParam {
 
 const IntParam FREQUENCY_MODE = {"frequency_mode", 1, 2, 2,
     "Sonar beam frequency mode.\n"
-    "\t1: Low frequency (1.2MHz, wide aperture).\n"
-    "\t2: High frequency (2.1Mhz, narrow aperture)."};
+    "\t1: Low frequency (750KHz, wide aperture).\n"
+    "\t2: High frequency (1.2Mhz, narrow aperture)."};
 
 const IntParam PING_RATE = {"ping_rate", 0, 5, 2,
     "Frequency of ping fires.\n\t" + std::to_string(pingRateNormal) + ": 10Hz max ping rate.\n\t" + std::to_string(pingRateHigh) +
@@ -130,7 +130,7 @@ struct DoubleParam {
   const std::string desc;
 };
 
-const DoubleParam RANGE = {"range", .3, 40., .1, 20., "Sonar range (in meters), min=0.3, max=40.0."};
+const DoubleParam RANGE = {"range", .1, 120., .1, 40., "Sonar range (in meters), min=0.1, max=120.0."};
 const DoubleParam GAIN_PERCENT = {"gain_percent", .1, 100., .1, 50., "Gain percentage (%), min=0.1, max=100.0."};
 const DoubleParam SOUND_SPEED = {"sound_speed", 1400., 1600., .1, 1500.,
     "Sound speed (in m/s, set to 0 for it to be calculated using salinity), min=1400.0, max=1600.0."};

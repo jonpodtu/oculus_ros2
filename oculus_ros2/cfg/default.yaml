@@ -8,8 +8,8 @@
     run: False # If run is False, stanby mode is forced. Default value is False.
 
     frequency_mode: 2 # Sonar beam frequency mode. Default value is 2.
-    # 1: Low frequency (1.2MHz, wide aperture).
-    # 2: High frequency (2.1MHz, narrow aperture).
+    # 1: Low frequency (750 KHz, wide aperture).
+    # 2: High frequency (1.2 MHz, narrow aperture).
 
     ping_rate: 2 # Frequency of ping fires. Default value is 2.
     # 0: 10Hz max ping rate.
@@ -25,7 +25,7 @@
 
     gain_assist: True # Enable gain assist. Default value is True.
 
-    range: 20.0 # Sonar range (in meters), min=0.3, max=40.0.  Default value is 20.0.
+    range: 40.0 # Sonar range (in meters), min=0.3, max=120.0.  Default value is 40.0. If high frequency, max 40 m. If low, 120 m
 
     # These parameters are for scaling data (investigate)
     gamma_correction: 153 # Gamma correction, min=0, max=255.  Default value is 153 (60%).

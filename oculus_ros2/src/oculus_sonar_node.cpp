@@ -169,13 +169,15 @@ void OculusSonarNode::checkMinimalFlags(const uint8_t& flags) const {
   }
 }
 
+
 void OculusSonarNode::publishStatus(const OculusStatusMsg& status) {
+/* Why are we restricting ourselves to one sensor? The config should be made so you can change between several
   if (status.partNumber != OculusPartNumberType::partNumberM1200d) {
     RCLCPP_ERROR_STREAM(get_logger(),
         "The sonar version seems to be different than M1200d."
         " This driver is not suppose to work with your sonar.");
   }
-
+*/
   // TODO(hugoyvrn, update ros param ?)
 
   static oculus_interfaces::msg::OculusStatus msg;
@@ -364,7 +366,7 @@ void OculusSonarNode::updateLocalParameters(SonarParameters& parameters, SonarDr
 void OculusSonarNode::sendParamToSonar(rclcpp::Parameter param, rcl_interfaces::msg::SetParametersResult result) {
   SonarDriver::PingConfig newConfig = currentConfig_;  // To avoid to create a new SonarDriver::PingConfig from ros parameters
   if (param.get_name() == params::FREQUENCY_MODE.name) {
-    RCLCPP_INFO_STREAM(this->get_logger(), "Updating frequency_mode to " << param.as_int() << " (1: 1.2MHz, 2: 2.1MHz).");
+    RCLCPP_INFO_STREAM(this->get_logger(), "Updating frequency_mode to " << param.as_int() << " (1: 750KHz, 2: 1.2MHz).");
     newConfig.masterMode = param.as_int();
   } else if (param.get_name() == params::PING_RATE.name) {
     RCLCPP_INFO_STREAM(this->get_logger(), "Updating ping_rate to " << param.as_int() << " (" + params::PING_RATE.desc + ").");
